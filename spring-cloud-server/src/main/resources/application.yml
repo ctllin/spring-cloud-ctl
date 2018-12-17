@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-cloud-eureka-client
+
+server:
+  port: 0 #我们让Spring Boot为我们选择一个随机端口，因为后面是使用名称来访问这个服务。现在重新访问Eureka控制台可以看到新注册的这个服务。
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8888/eureka}
+  instance:
+    preferIpAddress: true
