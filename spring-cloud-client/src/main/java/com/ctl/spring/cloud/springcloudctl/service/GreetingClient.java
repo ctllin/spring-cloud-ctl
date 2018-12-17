@@ -1,6 +1,7 @@
 package com.ctl.spring.cloud.springcloudctl.service;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version 1.0
  * @date 2018-12-17 15:05
  */
-@FeignClient("spring-cloud-eureka-client")
+@FeignClient(name="spring-cloud-eureka-client")
 public interface GreetingClient{
-    @RequestMapping("/greeting")
+    @RequestMapping(value = "/greeting")
     String greeting();
 }
