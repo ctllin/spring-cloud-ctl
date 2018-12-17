@@ -1,24 +1,25 @@
 server:
- port:   8001                 # 指定该Eureka-Server的端口
+  port: 28888 #服务注册中心端口号
+
 eureka:
- client:
-   registerWithEureka: false
-   fetchRegistry: false
-   serviceUrl:
-     defaultZone: http://127.0.0.1:8001/eureka/
+  instance:
+    hostname: localhost #服务注册中心实例的主机名
+  client:
+    registerWithEureka: false #是否向服务注册中心注册自己
+    fetchRegistry: false #是否检索服务
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 spring:
- application:
-   name: cloud-register-user
+  application:
+    name: spring-cloud-eureka-client
+
+server:
+  port: 0
 
 eureka:
- client:
-   serviceUrl:
-     defaultZone: http://127.0.0.1:8001/eureka/
- instance:
-   prefer-ip-address: true
-
-
-
-
-
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8888/eureka}
+  instance:
+    preferIpAddress: true
