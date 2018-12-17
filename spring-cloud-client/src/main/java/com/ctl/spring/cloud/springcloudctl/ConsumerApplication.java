@@ -28,3 +28,4 @@ public class ConsumerApplication {
 //@EnableDiscoveryClient :启用服务注册与发现
 //@EnableFeignClients：启用feign进行远程调用
 //http://localhost:8080/hello/ctl
+//http://localhost:8080/getGreeting

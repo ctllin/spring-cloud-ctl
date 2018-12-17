@@ -12,5 +12,6 @@ public class EurekaServerApplication {
 		SpringApplication.run(EurekaServerApplication.class, args);
 	}
 }
+//http://localhost:8888
 
 
