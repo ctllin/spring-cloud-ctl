@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,16 +24,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @EnableEurekaClient
 @EnableFeignClients
 @Controller
+@ComponentScan(basePackages = {"com.ctl.spring.cloud.springcloudctl.*"})
 @SpringBootApplication
 public class FeignClientController {
-    @Autowired(required = false)
-    private GreetingClient greetingClient;
+//    @Autowired
+//    private GreetingClient greetingClient;
 
     @RequestMapping("/get-greeting")
     public String greeting(Model model) {
-        model.addAttribute("greeting", greetingClient.greeting());
+        //model.addAttribute("greeting", greetingClient.greeting());
+        System.out.println("request:/get-greeting");
         return "greeting-view";
     }
+//    public static void main(String[] args) {
+//        SpringApplication.run(FeignClientController.class, args);
+//    }
     public static void main(String[] args) {
         SpringApplication.run(FeignClientController.class, args);
     }

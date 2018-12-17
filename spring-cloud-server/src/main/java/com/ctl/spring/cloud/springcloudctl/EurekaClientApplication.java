@@ -8,7 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 @SpringBootApplication
@@ -26,8 +32,19 @@ public class EurekaClientApplication implements GreetingService {
 		SpringApplication.run(EurekaClientApplication.class, args);
 	}
 
+
+	@RequestMapping("/greeting")
 	public String greeting() {
+		System.out.println("eurekaClient:"+eurekaClient);
 		return String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName());
 	}
-
+	@RequestMapping("/hello2")
+	@ResponseBody
+	public Map<String,Object> hello2() {
+		System.out.println("eurekaClient:"+eurekaClient);
+		Map<String,Object> returnMap = new HashMap<>();
+		String value = String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName());
+		returnMap.put("key",value);
+		return returnMap;
+	}
 }

@@ -40,7 +40,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<!-- 服务提供者 end-->
-
+		<!-- 注册中心 start-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+		<!-- 注册中心 end-->
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
