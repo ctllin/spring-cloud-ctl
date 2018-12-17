@@ -28,14 +28,10 @@ public class FeignClientController {
     @Autowired
     private GreetingClient greetingClient;
 
-    @RequestMapping("/getGreeting")
+    @RequestMapping("/greeting")
     public String greeting(Model model) {
-         model.addAttribute("greeting", greetingClient.greeting());
-        System.out.println("request:/get-greeting");
-        return "greeting-view";
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(FeignClientController.class, args);
+         model.addAttribute("greetingValue", greetingClient.greeting());
+        System.out.println("request=greeting");
+        return "greeting";
     }
 }
