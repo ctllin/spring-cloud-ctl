@@ -1,5 +1,5 @@
 server:
-  port: 28888 #服务注册中心端口号
+  port: 8888 #服务注册中心端口号
 
 eureka:
   instance:
@@ -9,17 +9,3 @@ eureka:
     fetchRegistry: false #是否检索服务
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-spring:
-  application:
-    name: spring-cloud-eureka-client
-
-server:
-  port: 0
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8888/eureka}
-  instance:
-    preferIpAddress: true
