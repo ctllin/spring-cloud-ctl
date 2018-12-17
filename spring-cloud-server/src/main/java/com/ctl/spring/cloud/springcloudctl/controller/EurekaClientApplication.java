@@ -1,4 +1,4 @@
-package com.ctl.spring.cloud.springcloudctl;
+package com.ctl.spring.cloud.springcloudctl.controller;
 
 import com.ctl.spring.cloud.springcloudctl.service.GreetingService;
 import com.netflix.discovery.EurekaClient;
@@ -9,17 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
-
-@SpringBootApplication
-@EnableEurekaClient
-@EnableDiscoveryClient
 @RestController
 public class EurekaClientApplication implements GreetingService {
 	@Autowired

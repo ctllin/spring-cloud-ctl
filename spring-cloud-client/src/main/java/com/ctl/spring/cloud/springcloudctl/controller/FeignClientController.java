@@ -23,17 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0
  * @date 2018-12-17 15:06
  */
-@SpringBootApplication
-@EnableDiscoveryClient //EnableDiscoveryClient :启用服务注册与发现
-@EnableEurekaClient
-@EnableFeignClients
-@ComponentScan(basePackages = "com.ctl.spring.cloud.springcloudctl.service")
 @RestController
 public class FeignClientController {
     @Autowired
     private GreetingClient greetingClient;
 
-    @RequestMapping("/get-greeting")
+    @RequestMapping("/getGreeting")
     public String greeting(Model model) {
          model.addAttribute("greeting", greetingClient.greeting());
         System.out.println("request:/get-greeting");
