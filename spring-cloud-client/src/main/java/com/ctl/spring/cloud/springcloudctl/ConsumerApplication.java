@@ -29,3 +29,4 @@ public class ConsumerApplication {
 //@EnableFeignClients：启用feign进行远程调用
 //http://localhost:8080/hello/ctl
 //http://localhost:8080/greeting
+//http://localhost:8080/health
